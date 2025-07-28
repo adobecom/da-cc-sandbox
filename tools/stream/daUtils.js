@@ -7,7 +7,8 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
     const { repo, path, ref } = context;
     let appPath =
       'https://enigma--cc--aishwaryamathuria.aem.live/enigma/index.html';
-    switch (ref) {
+    const appName = path.split('/').pop();
+    switch (appName) {
       case 'command-center':
         appPath =
           'https://poc-command-center--cc--adobecom.aem.live/tools/command-center/index.html';
