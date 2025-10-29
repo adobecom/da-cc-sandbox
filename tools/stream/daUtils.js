@@ -14,7 +14,9 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
           'https://poc-command-center--cc--adobecom.aem.live/tools/command-center/index.html';
         break;
     }
-    window.location.replace(appPath);
+    window.location.replace(
+      `${appPath}?tenant=${repo}&ref=${ref}&token=${token}`
+    );
   } catch (error) {
     console.error('Error initializing DA_SDK:', error);
   }
