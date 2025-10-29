@@ -15,7 +15,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
         break;
     }
     window.location.replace(
-      `${appPath}?path=${redirectPath}&tenant=${repo}&ref=${ref}&token=${token}`
+      `${appPath}?tenant=${repo}&ref=${ref}&token=${token}`
     );
   } catch (error) {
     console.error('Error initializing DA_SDK:', error);
