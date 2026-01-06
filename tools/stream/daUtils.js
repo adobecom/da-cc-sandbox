@@ -3,10 +3,26 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
 (async () => {
   try {
+    const STREAM_PROD = 'https://440859-stream.adobeioruntime.net/index.html';
+    const STREAM_STAGE = 'https://440859-stream-stage.adobeio-static.net/index.html';
+    const STREAM_LOCAL = 'http://localhost:5173/index.html';
+    
     const { context, token } = await DA_SDK;
     const { repo, path, ref } = context;
-    let appPath =
-      'https://enigma--cc--aishwaryamathuria.aem.live/enigma/index.html';
+    const env = new URL(window.location.href).searchParams.get('streamRef');
+    let appPath = 'https://440859-stream.adobeioruntime.net';
+    switch (env) {
+      case 'stage':
+        appPath = STREAM_STAGE;
+        break;
+      case 'local':
+        appPath = STREAM_LOCAL;
+        break;
+      default:
+        appPath = STREAM_PROD;
+        break;
+    }
+    // 'https://enigma--cc--aishwaryamathuria.aem.live/enigma/index.html';
     const appName = path.split('/').pop();
     switch (appName) {
       case 'command-center':
