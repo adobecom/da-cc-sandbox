@@ -6,11 +6,10 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
     const STREAM_PROD = 'https://440859-stream.adobeioruntime.net/index.html';
     const STREAM_STAGE = 'https://440859-stream-stage.adobeio-static.net/index.html';
     const STREAM_LOCAL = 'http://localhost:5173/index.html';
-    
     const { context, token } = await DA_SDK;
     const { repo, path, ref } = context;
     const env = new URL(window.location.href).searchParams.get('streamRef');
-    let appPath = 'https://440859-stream.adobeioruntime.net';
+    let appPath = '';
     switch (env) {
       case 'stage':
         appPath = STREAM_STAGE;
