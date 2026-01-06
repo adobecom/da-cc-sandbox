@@ -22,7 +22,6 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
         appPath = STREAM_PROD;
         break;
     }
-    // 'https://enigma--cc--aishwaryamathuria.aem.live/enigma/index.html';
     const appName = path.split('/').pop();
     switch (appName) {
       case 'command-center':
