@@ -6,5 +6,6 @@ self.addEventListener('fetch', (event) => {
       'X-Custom-Header': 'customHeader'
     }),
     mode: 'cors'
-  })
-})
+  });
+  event.respondWith(fetch(modifiedRequest));
+});
