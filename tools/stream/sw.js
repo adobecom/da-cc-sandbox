@@ -3,7 +3,7 @@ self.addeventListener('fetch', (event) => {
     headers: new Headers({
       ...event.request.headers,
       'X-Custom-Header': 'customHeader'
-    })
+    }),
     mode: 'cors'
   })
 })
