@@ -1,4 +1,4 @@
-window.addeventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
   console.log('worker invoked')
   const modifiedRequest = new Request(event.request, {
     headers: new Headers({
