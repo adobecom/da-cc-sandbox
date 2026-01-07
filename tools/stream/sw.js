@@ -1,4 +1,5 @@
 self.addeventListener('fetch', (event) => {
+  console.log('worker invoked')
   const modifiedRequest = new Request(event.request, {
     headers: new Headers({
       ...event.request.headers,
