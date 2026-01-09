@@ -3,7 +3,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
 (async () => {
   try {
-    const STREAM_PROD = 'https://440859-stream.adobeioruntime.net/index.html';
+    const STREAM_PROD = 'https://440859-stream.adobeio-static.net/index.html';
     const STREAM_STAGE = 'https://440859-stream-stage.adobeio-static.net/index.html';
     const STREAM_LOCAL = 'http://localhost:5173/index.html';
     const { context, token } = await DA_SDK;
