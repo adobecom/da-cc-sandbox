@@ -5,11 +5,14 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
   try {
     const STREAM_PROD = 'https://440859-stream.adobeio-static.net/index.html';
     const STREAM_STAGE = 'https://440859-stream-stage.adobeio-static.net/index.html';
+    const STREAM_DEV = 'https://440859-stream-dev.adobeio-static.net/index.html';
     const { context, token } = await DA_SDK;
     const { repo, path, ref } = context;
-    const env = new URL(window.location.href).searchParams.get('streamRef');
     let appPath = '';
-    switch (env) {
+    switch (ref) {
+      case 'dev':
+        appPath = STREAM_DEV;
+        break;
       case 'stage':
         appPath = STREAM_STAGE;
         break;
