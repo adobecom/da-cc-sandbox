@@ -20,7 +20,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
         appPath = STREAM_PROD;
         break;
     }
-    window.querySelector('iframe').src = `${appPath}?tenant=${repo}&token=${token}`;
+    document.querySelector('iframe').src = `${appPath}?tenant=${repo}&token=${token}`;
   } catch (error) {
     console.error('Error initializing DA_SDK:', error);
   }
