@@ -13,6 +13,9 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
       case 'dev':
         appPath = STREAM_DEV;
         break;
+      case 'tokenprotocol':
+        appPath = STREAM_DEV;
+        break;
       case 'stage':
         appPath = STREAM_STAGE;
         break;
