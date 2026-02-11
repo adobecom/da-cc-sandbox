@@ -20,16 +20,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
         appPath = STREAM_PROD;
         break;
     }
-    const appName = path.split('/').pop();
-    switch (appName) {
-      case 'command-center':
-        appPath =
-          'https://poc-command-center--cc--adobecom.aem.live/tools/command-center/index.html';
-        break;
-    }
-    window.location.replace(
-      `${appPath}?tenant=${repo}&token=${token}`
-    );
+    window.querySelector('iframe').src = `${appPath}?tenant=${repo}&token=${token}`;
   } catch (error) {
     console.error('Error initializing DA_SDK:', error);
   }
