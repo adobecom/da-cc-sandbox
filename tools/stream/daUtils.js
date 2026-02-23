@@ -23,7 +23,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
     if (token) {
       window.location.replace(`${appPath}?tenant=${repo}&token=${token}`);
     } else {
-      window.location.replace(`${appPath}?tenant=${repo});
+      window.location.replace(`${appPath}?tenant=${repo}`);
     }
   } catch (error) {
     console.error('Error initializing DA_SDK:', error);
