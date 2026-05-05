@@ -23,13 +23,9 @@ async function getEnvEps() {
 
 (async () => {
   try {
-    const endpointByEnv = await getEnvEps();
-    const STREAM_PROD = endpointByEnv.prod;
-    const STREAM_STAGE = endpointByEnv.stage;
-    const STREAM_DEV = endpointByEnv.dev;
-    const STREAM_DEV02 = endpointByEnv.dev02;
     const { context, token } = await DA_SDK;
     const { repo, path, ref, search } = context;
+    const endpointByEnv = await getEnvEps();
     const appPath = endpointByEnv[ref] ? endpointByEnv[ref] : endpointByEnv['prod'];
     let appLoc = `${appPath}?tenant=${repo}`;
     appLoc = getAppLocWithToken(appLoc, token);
