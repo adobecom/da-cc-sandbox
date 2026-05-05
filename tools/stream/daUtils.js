@@ -19,6 +19,7 @@ async function getEnvEps() {
   const endpointByEnv = Object.fromEntries(
     envInfo.data.map(({ env, endpoint }) => [env, endpoint])
   );
+  return endpointByEnv;
 }
 
 (async () => {
