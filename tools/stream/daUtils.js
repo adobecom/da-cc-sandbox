@@ -13,6 +13,13 @@ function getAppLocWithCollab(appLoc, search) {
   return appLoc;
 }
 
+function getAppLocWithPreviewUrl(appLoc, search) {
+  const searchParams = new URLSearchParams(search);
+  const previewUrl = searchParams.get("previewUrl");
+  if (previewUrl) return `${appLoc}&previewUrl=${previewUrl}`;
+  return appLoc;
+}
+
 async function getEnvEps() {
   const response = await fetch('https://main--stream-mapper--adobecom.aem.live/configuration/app-endpoints.json');
   const envInfo = await response.json();
@@ -31,6 +38,7 @@ async function getEnvEps() {
     let appLoc = `${appPath}?tenant=${repo}`;
     appLoc = getAppLocWithToken(appLoc, token);
     appLoc = getAppLocWithCollab(appLoc, search);
+    appLoc = getAppLocWithPreviewUrl(appLoc, search);
     window.location.replace(appLoc);
   } catch (error) {
     console.error('Error initializing app:', error);
