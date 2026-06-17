@@ -43,6 +43,13 @@
     },
     {
       "containerId": "tools",
+      "id": "streamannotation",
+      "title": "Stream Annotation",
+      "environments": ["edit", "dev", "preview", "live", "prod"],
+      "event": "hello"
+    },
+    {
+      "containerId": "tools",
       "id": "locales",
       "title": "Locales",
       "environments": ["edit", "dev", "preview", "live"],
