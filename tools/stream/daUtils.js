@@ -8,11 +8,15 @@ function getAppLocWithToken(appLoc, token) {
 
 function getAppLocWithCollab(appLoc, search) {
   const searchParams = new URLSearchParams(search);
-  let returl = appLoc;
   const collabId = searchParams.get("streamCollabId");
-  if (collabId) returl = `${returl}&collabId=${collabId}`;
-  const fallbackPeregrine = searchParams.get("fallbackPeregrine");
-  if (fallbackPeregrine) returl = `${returl}&fallbackPeregrine=${true}`;
+  if (collabId) return `${appLoc}&collabId=${collabId}`;
+  return appLoc;
+}
+
+function getAppLocWithPreviewUrl(appLoc, search) {
+  const searchParams = new URLSearchParams(search);
+  const previewUrl = searchParams.get("previewUrl");
+  if (previewUrl) return `${appLoc}&previewUrl=${previewUrl}`;
   return appLoc;
 }
 
@@ -34,6 +38,7 @@ async function getEnvEps() {
     let appLoc = `${appPath}?tenant=${repo}`;
     appLoc = getAppLocWithToken(appLoc, token);
     appLoc = getAppLocWithCollab(appLoc, search);
+    appLoc = getAppLocWithPreviewUrl(appLoc, search);
     window.location.replace(appLoc);
   } catch (error) {
     console.error('Error initializing app:', error);
